@@ -4,8 +4,7 @@ import 'package:swara_solution_flutter_machine_test/model/login_model.dart';
 import 'package:http/http.dart' as http;
 
 class ApiProvider {
-  Future<LoginResponse?> login(
-      String username, String password, String macid) async {
+  Future<LoginResponse?> login(String username, String password) async {
     var formData = {
       'username': username,
       'password': password,

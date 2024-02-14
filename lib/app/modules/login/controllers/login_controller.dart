@@ -1,23 +1,60 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
+import 'package:swara_solution_flutter_machine_test/api/api.dart';
+import 'dart:convert';
+import 'dart:typed_data';
+import 'package:crypto/crypto.dart';
+import 'package:swara_solution_flutter_machine_test/app/routes/app_pages.dart';
+import 'package:swara_solution_flutter_machine_test/common_widgets/helper/toast.dart';
+import 'package:swara_solution_flutter_machine_test/model/login_model.dart';
 
 class LoginController extends GetxController {
-  //TODO: Implement LoginController
-
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  var isLoading = false.obs;
+
+  var isButtonShow = false.obs;
+  final formKey = GlobalKey<FormState>();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  void login() async {
+    String sha256 = sha256Password(passwordController.text);
+    isLoading(true);
+
+    try {
+      final response =
+          await ApiProvider().login(usernameController.text.trim(), sha256);
+      if (response != null) {
+        if (response.status.code == 200) {
+          preferaceData(response);
+          Get.offAllNamed(Routes.SPLASH);
+          toast("Sucessfully Login");
+        } else {
+          isLoading(false);
+          toast(response.status.message);
+        }
+      }
+    } finally {
+      isLoading(false);
+    }
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  String sha256Password(String input) {
+    var bytes = utf8.encode(input);
+    var sha256Hash = sha256.convert(bytes);
+    return sha256Hash.toString();
   }
 
-  void increment() => count.value++;
+  Future<void> preferaceData(LoginResponse response) async {
+    const storage = FlutterSecureStorage();
+
+    await storage.write(
+        key: 'userid', value: response.response.userId.toString());
+    await storage.write(
+        key: 'username', value: response.response.userName.toString());
+  }
 }

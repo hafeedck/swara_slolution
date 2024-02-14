@@ -22,6 +22,7 @@ class LoginView extends GetView<LoginController> {
       ),
       backgroundColor: whiteColor,
       body: Form(
+        key: controller.formKey,
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -37,7 +38,7 @@ class LoginView extends GetView<LoginController> {
                 TextfieldWithText(
                   hintText: "Enter Email or Mob No",
                   labelText: "Please Sign in to continue",
-                  // textEditingController: loginState.usernameController,
+                  textEditingController: controller.usernameController,
                   // onChanged: (String value) {
                   //   loginState.usernametextfiledOnChange(value);
                   // },
@@ -56,19 +57,15 @@ class LoginView extends GetView<LoginController> {
                 TextfieldWithText(
                   hintText: "Enter password",
                   // obscureText: loginState.passwordVisible,
-                  // onChanged: (String value) {
-                  //   loginState.passwordtextfiledOnChange(value);
-                  // },
-                  // suffixIcon: InkWell(
-                  //     onTap: () {
-                  //       loginState.passwordVisible =
-                  //           !loginState.passwordVisible;
-                  //     },
-                  //     child: loginState.passwordVisible == false
-                  //         ? const Icon(Icons.visibility)
-                  //         : const Icon(Icons.visibility_off)),
+                  onChanged: (String value) {
+                    if (value != "") {
+                      controller.isButtonShow.value = true;
+                    } else {
+                      controller.isButtonShow.value = false;
+                    }
+                  },
                   labelText: "Password",
-                  // textEditingController: loginState.passwordController,
+                  textEditingController: controller.passwordController,
                   validator: (value) {
                     if (value.isEmpty) {
                       return 'Enter Password';
@@ -87,11 +84,18 @@ class LoginView extends GetView<LoginController> {
                   ],
                 ),
                 40.0.spaceY,
-                CommonButtonWidget(
-                  label: "Submit",
-                  color: Colors.grey,
-                  onClick: () {},
-                ),
+                Obx(() => CommonButtonWidget(
+                      label: "Submit",
+                      color: controller.isButtonShow.value == true
+                          ? primaryColor
+                          : Colors.grey,
+                      isLoading: controller.isLoading.value,
+                      onClick: () {
+                        if (controller.formKey.currentState!.validate()) {
+                          controller.login();
+                        }
+                      },
+                    )),
                 20.0.spaceY,
                 Stack(
                   children: [

@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:swara_solution_flutter_machine_test/common_widgets/colors/colors.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CommonAppBar({
-    super.key,
-  });
+  final String label;
+
+  const CommonAppBar({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
       elevation: 0.0,
-      leading: IconButton(
-        icon: const Icon(
-          Icons.arrow_back_ios_new,
-          color: Colors.blue,
-          size: 30,
-        ),
-        onPressed: () {
-          Navigator.pop(context);
-        },
+      centerTitle: false,
+      bottomOpacity: 0,
+      backgroundColor: whiteColor,
+      leading: InkWell(
+          onTap: () {
+            Get.back();
+          },
+          child: const Icon(
+            Icons.arrow_back_ios,
+            color: primaryColor,
+          )),
+      title: Text(
+        label,
+        style: const TextStyle(fontSize: 18, color: primaryColor),
       ),
     );
   }

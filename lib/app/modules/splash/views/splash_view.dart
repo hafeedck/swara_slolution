@@ -17,7 +17,7 @@ class SplashView extends GetView<SplashController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              homeTitle("Swara Solutions"),
+              homeTitle("Sawara Solutions"),
             ],
           ),
         ),
