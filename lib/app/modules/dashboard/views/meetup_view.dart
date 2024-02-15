@@ -26,7 +26,19 @@ class MeetupScreen extends GetView<DashboardController> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CommonTextField().paddingAll(5),
+            const CommonTextField(
+              hintText: "Search",
+              prefixIcon: Icon(
+                Icons.search,
+                color: blueColor,
+                size: 30,
+              ),
+              suffixIcon: Icon(
+                Icons.mic,
+                color: blueColor,
+                size: 30,
+              ),
+            ).paddingAll(5),
             CarouselSliderWidget(controller.sliderImage),
             commonText("Trending Popular People",
                 color: blueColor, fontSize: 18),
