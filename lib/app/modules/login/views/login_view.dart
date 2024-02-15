@@ -127,7 +127,7 @@ class LoginView extends GetView<LoginController> {
                             color: Colors.black, fontSize: 20)),
                   ],
                 ),
-                20.0.spaceY,
+                25.0.spaceY,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -158,7 +158,7 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ],
                 ).paddingOnly(left: 30, right: 30),
-                20.0.spaceY,
+                25.0.spaceY,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -184,6 +184,7 @@ class LoginView extends GetView<LoginController> {
                     )
                   ],
                 ).paddingAll(10),
+                10.0.spaceY,
                 commonText("By continuing, You agree To",
                     fontSize: 15, color: greyColor),
                 Row(
