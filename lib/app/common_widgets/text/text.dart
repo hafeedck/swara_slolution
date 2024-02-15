@@ -18,7 +18,7 @@ Text homeTitle(String label) {
 Text commonText(String label, {double? fontSize, Color? color}) {
   return Text(
     label,
-    textAlign: TextAlign.center,
+    textAlign: TextAlign.justify,
     style: TextStyle(
         color: color,
         fontFamily: 'Rubik',
