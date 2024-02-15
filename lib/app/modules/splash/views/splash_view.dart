@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:swara_solution_flutter_machine_test/common_widgets/text/text.dart';
+import 'package:swara_solution_flutter_machine_test/app/common_widgets/text/text.dart';
 
 import '../controllers/splash_controller.dart';
 

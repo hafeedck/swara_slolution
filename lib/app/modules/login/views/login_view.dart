@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:swara_solution_flutter_machine_test/common_widgets/buttons/common_button.dart';
-import 'package:swara_solution_flutter_machine_test/common_widgets/colors/colors.dart';
-import 'package:swara_solution_flutter_machine_test/common_widgets/text/text.dart';
-import 'package:swara_solution_flutter_machine_test/common_widgets/textfield/textfield_with_text.dart';
-import 'package:swara_solution_flutter_machine_test/extensions/extension.dart';
+import 'package:swara_solution_flutter_machine_test/app/common_widgets/buttons/common_button.dart';
+import 'package:swara_solution_flutter_machine_test/app/common_widgets/colors/colors.dart';
+import 'package:swara_solution_flutter_machine_test/app/common_widgets/text/text.dart';
+import 'package:swara_solution_flutter_machine_test/app/common_widgets/textfield/textfield_with_text.dart';
+import 'package:swara_solution_flutter_machine_test/app/extensions/extension.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:swara_solution_flutter_machine_test/common_widgets/colors/colors.dart';
+
+import 'package:swara_solution_flutter_machine_test/app/common_widgets/colors/colors.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String label;
+  final Function onTap;
 
-  const CommonAppBar({super.key, required this.label});
+  const CommonAppBar({super.key, required this.label, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: whiteColor,
       leading: InkWell(
           onTap: () {
-            Get.back();
+            onTap();
           },
           child: const Icon(
             Icons.arrow_back_ios,

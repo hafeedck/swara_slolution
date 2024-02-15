@@ -1,7 +1,7 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:swara_solution_flutter_machine_test/app/routes/app_pages.dart';
-import 'package:swara_solution_flutter_machine_test/service/session.dart';
+import 'package:swara_solution_flutter_machine_test/app/service/session.dart';
 
 class SplashController extends GetxController {
   @override

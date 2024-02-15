@@ -1,6 +1,6 @@
-import 'package:swara_solution_flutter_machine_test/common_widgets/colors/colors.dart';
-import 'package:swara_solution_flutter_machine_test/common_widgets/text/text.dart';
-import 'package:swara_solution_flutter_machine_test/extensions/extension.dart';
+import 'package:swara_solution_flutter_machine_test/app/common_widgets/colors/colors.dart';
+import 'package:swara_solution_flutter_machine_test/app/common_widgets/text/text.dart';
+import 'package:swara_solution_flutter_machine_test/app/extensions/extension.dart';
 import 'package:flutter/material.dart';
 
 class TextfieldWithText extends StatelessWidget {

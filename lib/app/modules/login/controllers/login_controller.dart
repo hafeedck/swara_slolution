@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
-import 'package:swara_solution_flutter_machine_test/api/api.dart';
+import 'package:swara_solution_flutter_machine_test/app/api/api.dart';
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:crypto/crypto.dart';
 import 'package:swara_solution_flutter_machine_test/app/routes/app_pages.dart';
-import 'package:swara_solution_flutter_machine_test/common_widgets/helper/toast.dart';
-import 'package:swara_solution_flutter_machine_test/model/login_model.dart';
+import 'package:swara_solution_flutter_machine_test/app/common_widgets/helper/toast.dart';
+import 'package:swara_solution_flutter_machine_test/app/model/login_model.dart';
 
 class LoginController extends GetxController {
   @override

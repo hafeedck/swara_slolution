@@ -1,4 +1,4 @@
-import 'package:swara_solution_flutter_machine_test/common_widgets/colors/colors.dart';
+import 'package:swara_solution_flutter_machine_test/app/common_widgets/colors/colors.dart';
 import 'package:flutter/material.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {

@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:swara_solution_flutter_machine_test/api/base_url.dart';
-import 'package:swara_solution_flutter_machine_test/model/login_model.dart';
+import 'package:swara_solution_flutter_machine_test/app/api/base_url.dart';
+import 'package:swara_solution_flutter_machine_test/app/model/login_model.dart';
 import 'package:http/http.dart' as http;
 
 class ApiProvider {
