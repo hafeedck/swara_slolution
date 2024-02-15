@@ -18,7 +18,7 @@ class MeetupCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-          width: 300,
+          width: size.width * 0.75,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: const Color(0xFFF8F8F8),
@@ -81,7 +81,7 @@ class MeetupCard extends StatelessWidget {
                 children: [
                   SizedBox(
                       height: 30,
-                      width: 100,
+                      width: size.width * 0.25,
                       child: CommonButtonWidget(
                         label: "See more",
                         onClick: () {},

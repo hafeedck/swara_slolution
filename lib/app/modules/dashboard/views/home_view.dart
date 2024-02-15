@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:swara_solution_flutter_machine_test/app/common_widgets/appbar/common_appbar.dart';
 
-class ExploreScreen extends StatelessWidget {
-  const ExploreScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       appBar: CommonAppBar(
-        label: "Individual Meetup",
+        label: "Home",
         onTap: () {},
       ),
       body: const Center(
-        child: Text('Explore Screen'),
+        child: Text('Home Screen'),
       ),
     );
+
   }
 }

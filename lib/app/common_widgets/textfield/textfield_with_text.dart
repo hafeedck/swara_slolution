@@ -40,7 +40,7 @@ class TextfieldWithText extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        commonText(labelText, fontSize: 15, color: greyColor),
+        commonText(labelText, fontSize: 15, color: blueColor),
         5.0.spaceY,
         TextFormField(
           readOnly: readonly,

@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:swara_solution_flutter_machine_test/app/common_widgets/colors/colors.dart';
 import 'package:swara_solution_flutter_machine_test/app/common_widgets/text/text.dart';
@@ -20,7 +19,6 @@ class ReactionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Row(
       children: [
         const Icon(

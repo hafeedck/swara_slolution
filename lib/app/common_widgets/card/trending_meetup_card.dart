@@ -7,7 +7,8 @@ class TrendingMeetupCard extends StatelessWidget {
   final Function onTap;
   const TrendingMeetupCard({
     Key? key,
-    required this.count, required this.onTap,
+    required this.count,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -20,8 +21,8 @@ class TrendingMeetupCard extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            width: 200,
-            height: 200,
+            width: size.width * 0.55,
+            height: size.height * 0.25,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
             ),
@@ -37,8 +38,8 @@ class TrendingMeetupCard extends StatelessWidget {
             right: 1.0,
             top: 125,
             child: Container(
-              height: 80,
-              width: 70,
+              width: size.width * 0.2,
+              height: size.height * 0.1,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),

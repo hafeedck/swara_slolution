@@ -23,7 +23,6 @@ class DetailWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,

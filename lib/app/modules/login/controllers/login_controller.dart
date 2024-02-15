@@ -3,7 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:swara_solution_flutter_machine_test/app/api/api.dart';
 import 'dart:convert';
-import 'dart:typed_data';
+// ignore: depend_on_referenced_packages
 import 'package:crypto/crypto.dart';
 import 'package:swara_solution_flutter_machine_test/app/routes/app_pages.dart';
 import 'package:swara_solution_flutter_machine_test/app/common_widgets/helper/toast.dart';
@@ -17,7 +17,8 @@ class LoginController extends GetxController {
 
   var isLoading = false.obs;
 
-  var isButtonShow = false.obs;
+  var ispasswordButtonShow = false.obs;
+  var isemailButtonShow = false.obs;
   final formKey = GlobalKey<FormState>();
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -33,6 +34,8 @@ class LoginController extends GetxController {
           preferaceData(response);
           Get.offAllNamed(Routes.SPLASH);
           toast("Sucessfully Login");
+          usernameController.clear();
+          passwordController.clear();
         } else {
           isLoading(false);
           toast(response.status.message);

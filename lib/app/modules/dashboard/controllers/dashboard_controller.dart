@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:swara_solution_flutter_machine_test/app/modules/dashboard/views/account.dart';
-import 'package:swara_solution_flutter_machine_test/app/modules/dashboard/views/explore.dart';
-import 'package:swara_solution_flutter_machine_test/app/modules/dashboard/views/home.dart';
-import 'package:swara_solution_flutter_machine_test/app/modules/dashboard/views/meetup.dart';
-import 'package:swara_solution_flutter_machine_test/app/modules/dashboard/views/prolet.dart';
+import 'package:swara_solution_flutter_machine_test/app/modules/dashboard/views/account_view.dart';
+import 'package:swara_solution_flutter_machine_test/app/modules/dashboard/views/explore_view.dart';
+import 'package:swara_solution_flutter_machine_test/app/modules/dashboard/views/home_view.dart';
+import 'package:swara_solution_flutter_machine_test/app/modules/dashboard/views/meetup_view.dart';
+import 'package:swara_solution_flutter_machine_test/app/modules/dashboard/views/prole_viewt.dart';
 import 'package:swara_solution_flutter_machine_test/app/common_widgets/colors/colors.dart';
 import 'package:swara_solution_flutter_machine_test/app/common_widgets/svg/svg_widget.dart';
 
@@ -36,26 +36,6 @@ class DashboardController extends GetxController {
     super.onInit();
   }
 
-  void onChange(int value) {
-    pageIndex.value = value;
-    if (value == 0) {
-      title = 'Home';
-    }
-    if (value == 1) {
-      title = 'Prolet';
-    }
-    if (value == 2) {
-      title = 'Individual Meetup';
-    }
-    if (value == 3) {
-      title = 'Explore';
-    }
-    if (value == 4) {
-      title = 'Account';
-    }
-
-    update();
-  }
 
   List<PersistentBottomNavBarItem> navBarItems() {
     return [

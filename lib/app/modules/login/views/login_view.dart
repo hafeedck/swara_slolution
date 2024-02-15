@@ -39,29 +39,38 @@ class LoginView extends GetView<LoginController> {
                   hintText: "Enter Email or Mob No",
                   labelText: "Please Sign in to continue",
                   textEditingController: controller.usernameController,
-                  // onChanged: (String value) {
-                  //   loginState.usernametextfiledOnChange(value);
-                  // },
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return 'Enter Email or Mob No';
+                  onChanged: (String value) {
+                    if (value != "") {
+                      controller.isemailButtonShow.value = true;
+                    } else {
+                      controller.isemailButtonShow.value = false;
                     }
-                    return null;
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please Enter a Email id';
+                    } else if (!RegExp(
+                            "^[a-zA-Z0-9.!#%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*")
+                        .hasMatch(value)) {
+                      return 'Please Enter a valid Email';
+                    } else {
+                      return null;
+                    }
                   },
                 ),
                 15.0.spaceY,
                 Align(
                     alignment: Alignment.centerRight,
                     child: commonText("Sign in With OTP",
-                        fontSize: 15, color: greyColor)),
+                        fontSize: 15, color: primaryColor)),
                 TextfieldWithText(
                   hintText: "Enter password",
                   // obscureText: loginState.passwordVisible,
                   onChanged: (String value) {
                     if (value != "") {
-                      controller.isButtonShow.value = true;
+                      controller.ispasswordButtonShow.value = true;
                     } else {
-                      controller.isButtonShow.value = false;
+                      controller.ispasswordButtonShow.value = false;
                     }
                   },
                   labelText: "Password",
@@ -77,22 +86,27 @@ class LoginView extends GetView<LoginController> {
                 Row(
                   children: [
                     const Icon(Icons.check_box_outline_blank),
+                    5.0.spaceX,
                     commonText("Remember Me", fontSize: 15, color: greyColor),
                     const Spacer(),
                     commonText("Forgot Password",
-                        fontSize: 15, color: greyColor),
+                        fontSize: 15, color: primaryColor),
                   ],
                 ),
                 40.0.spaceY,
                 Obx(() => CommonButtonWidget(
                       label: "Submit",
-                      color: controller.isButtonShow.value == true
+                      color: controller.isemailButtonShow.value == true &&
+                              controller.ispasswordButtonShow.value == true
                           ? primaryColor
                           : Colors.grey,
                       isLoading: controller.isLoading.value,
                       onClick: () {
-                        if (controller.formKey.currentState!.validate()) {
-                          controller.login();
+                        if (controller.isemailButtonShow.value == true &&
+                            controller.ispasswordButtonShow.value == true) {
+                          if (controller.formKey.currentState!.validate()) {
+                            controller.login();
+                          }
                         }
                       },
                     )),
@@ -111,6 +125,73 @@ class LoginView extends GetView<LoginController> {
                         left: 180,
                         child: commonText("or",
                             color: Colors.black, fontSize: 20)),
+                  ],
+                ),
+                20.0.spaceY,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset(
+                      "assets/image/google.jpg",
+                      height: 30,
+                      width: 30,
+                    ),
+                    Image.asset(
+                      "assets/image/linkdin.png",
+                      height: 30,
+                      width: 30,
+                    ),
+                    Image.asset(
+                      "assets/image/facebook.png",
+                      height: 30,
+                      width: 30,
+                    ),
+                    Image.asset(
+                      "assets/image/insta.jpg",
+                      height: 30,
+                      width: 30,
+                    ),
+                    Image.asset(
+                      "assets/image/whatsapp.png",
+                      height: 30,
+                      width: 30,
+                    ),
+                  ],
+                ).paddingOnly(left: 30, right: 30),
+                20.0.spaceY,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        commonText("Business User?",
+                            fontSize: 15, color: greyColor),
+                        commonText("Login Here",
+                            fontSize: 15, color: primaryColor),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        commonText("Don't Have an Account",
+                            fontSize: 15, color: greyColor),
+                        commonText("Sign Up",
+                            fontSize: 15, color: primaryColor),
+                      ],
+                    )
+                  ],
+                ).paddingAll(10),
+                commonText("By continuing, You agree To",
+                    fontSize: 15, color: greyColor),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    commonText("Promilo ", fontSize: 15, color: greyColor),
+                    commonText("Terms Of Use & Privacy Policy",
+                        fontSize: 15, color: Colors.black),
                   ],
                 ),
               ],
